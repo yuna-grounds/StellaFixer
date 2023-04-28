@@ -360,6 +360,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 "Assets/B_Scripts_YN/CharMove_YN.cs"
 "Assets/B_Scripts_YN/GrapControl_YN.cs"
+"Assets/B_Scripts_YN/InventoryControl_YN.cs"
 -langversion:9.0
 
 /deterministic

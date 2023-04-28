@@ -13,7 +13,6 @@ public class GrapControl_YN : MonoBehaviour
     void Start()
     {
         myhand = handState.grabable;
-        print("실행");
         lr = this.GetComponent<LineRenderer>();
     }
 
@@ -23,26 +22,25 @@ public class GrapControl_YN : MonoBehaviour
     }
     void RayCheck()
     {
-        print("광선 체크");
+        // 광선이 닿았을 때
         if(Physics.Raycast(this.transform.position, this.transform.forward, out hits, 20f) == true)
         {
-            print("광선 닿음");
+            //트리거 버튼을 누른다면
             if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch) == true)
             {
-                print("트리거 누름");
+                //객체 조건이 일치하면 잡기
                 if (hits.transform.tag == "Nut" && myhand == handState.grabable)
                 {
-                    // 잡는 방법 설정 - 잡은 물체를 위치 시킬 좌표
+                    // 자식객체 종속
                     hits.transform.SetParent(grabpos);
-                    //잡았을 때 자식객체 물리 여부
+                    // 자식객체 물리 여부
                     hits.transform.GetComponent<Rigidbody>().isKinematic = true;
                     // 잡으면 상태 변경
                     myhand = handState.grabed;
-                    print("상태 변경, 진동");
                     OVRInput.SetControllerVibration(1f, 1f, OVRInput.Controller.RTouch);
                 }
             }
-            else
+            if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch) == false)
             {
                 if (myhand == handState.grabed)
                 {
@@ -50,6 +48,7 @@ public class GrapControl_YN : MonoBehaviour
                 }
                 myhand = handState.grabable;
             }
+
         }
     }
 

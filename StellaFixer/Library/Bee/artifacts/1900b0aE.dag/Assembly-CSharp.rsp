@@ -361,6 +361,7 @@
 "Assets/B_Scripts_YN/CharMove_YN.cs"
 "Assets/B_Scripts_YN/GrapControl_YN.cs"
 "Assets/B_Scripts_YN/InventoryControl_YN.cs"
+"Assets/B_Scripts_YN/Teleport_YN.cs"
 -langversion:9.0
 
 /deterministic
